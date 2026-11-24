@@ -1,0 +1,13 @@
+#!/bin/sh
+# git-flow guard: no direct commits on long-lived branches.
+# Merge commits (git flow finish) use pre-merge-commit, not this hook, so finishing still works.
+# Bypass in emergencies: GITFLOW_BYPASS=1 git commit ...
+[ "$GITFLOW_BYPASS" = "1" ] && exit 0
+branch=$(git symbolic-ref --short -q HEAD) || exit 0
+case "$branch" in
+  main|master|develop)
+    echo "git-flow: direct commits to '$branch' are not allowed." >&2
+    echo "  Start a branch: git flow feature start <name>  (or bugfix/release/hotfix)" >&2
+    exit 1 ;;
+esac
+exit 0

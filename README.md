@@ -18,3 +18,12 @@ Apple Neural Engine projects, forked to `o2alexanderfedin` and cloned here. In e
 | `ml-ane-transformers` | apple-aiml-research/ml-ane-transformers | Python | Apple's reference for transformers on the ANE (`[B,C,1,S]` layout, conv instead of linear). |
 
 Update all: `for d in */; do git -C "$d" fetch --all -q; done`
+
+## Workflow (git flow, enforced)
+
+This workspace and `apple-neural-engine-training` use **git flow** (git-flow-next, classic preset): `main` holds releases, `develop` is the integration branch, and work happens on `feature/`, `bugfix/`, `release/`, `hotfix/` or `support/` branches. The other submodules are read-only references and track their upstream `main`.
+
+- **Setup after cloning:** `git clone --recurse-submodules https://github.com/o2alexanderfedin/apple-neural-engine && cd apple-neural-engine && scripts/setup-git-flow.sh`. The script initializes git flow and installs the guard hooks from `.githooks/` in both repos.
+- **Locally:** `pre-commit` blocks commits on `main`/`develop`. `pre-push` blocks pushes to `main`/`develop` and branch names outside git-flow naming. Emergency bypass: `GITFLOW_BYPASS=1`.
+- **On GitHub:** a ruleset on `main` and `develop` in both repos requires a pull request and blocks force-pushes and deletion. `develop` is the default branch.
+- **Typical cycle:** `git flow feature start x` → commit → `git push -u origin feature/x` → `gh pr create --base develop` → merge on GitHub. Releases: `git flow release start 1.0` → PR into `main` → tag → PR `main` back into `develop`.
