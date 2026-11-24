@@ -1,0 +1,36 @@
+[submodule "ane-infer"]
+	path = ane-infer
+	url = https://github.com/o2alexanderfedin/ane-infer.git
+[submodule "ANE-LM"]
+	path = ANE-LM
+	url = https://github.com/o2alexanderfedin/ANE-LM.git
+[submodule "ane-train"]
+	path = ane-train
+	url = https://github.com/o2alexanderfedin/ane-train.git
+[submodule "ANEForge"]
+	path = ANEForge
+	url = https://github.com/o2alexanderfedin/ANEForge.git
+[submodule "Apple-Neural-Engine-Microarchitecture-Study-M6"]
+	path = Apple-Neural-Engine-Microarchitecture-Study-M6
+	url = https://github.com/o2alexanderfedin/Apple-Neural-Engine-Microarchitecture-Study-M6.git
+[submodule "apple-neural-engine-training"]
+	path = apple-neural-engine-training
+	url = https://github.com/o2alexanderfedin/apple-neural-engine-training.git
+[submodule "Espresso"]
+	path = Espresso
+	url = https://github.com/o2alexanderfedin/Espresso.git
+[submodule "ml-ane-transformers"]
+	path = ml-ane-transformers
+	url = https://github.com/o2alexanderfedin/ml-ane-transformers.git
+[submodule "neural-engine"]
+	path = neural-engine
+	url = https://github.com/o2alexanderfedin/neural-engine.git
+[submodule "Orion"]
+	path = Orion
+	url = https://github.com/o2alexanderfedin/Orion.git
+[submodule "silicon-ledger-public"]
+	path = silicon-ledger-public
+	url = https://github.com/o2alexanderfedin/silicon-ledger-public.git
+[submodule "YuE-Studio"]
+	path = YuE-Studio
+	url = https://github.com/o2alexanderfedin/YuE-Studio.git
