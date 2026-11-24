@@ -16,6 +16,7 @@
 [submodule "apple-neural-engine-training"]
 	path = apple-neural-engine-training
 	url = https://github.com/o2alexanderfedin/apple-neural-engine-training.git
+	branch = develop
 [submodule "Espresso"]
 	path = Espresso
 	url = https://github.com/o2alexanderfedin/Espresso.git
