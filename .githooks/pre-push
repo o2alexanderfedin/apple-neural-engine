@@ -1,0 +1,19 @@
+#!/bin/sh
+# git-flow guard (solo workflow, no PRs): only main, develop and git-flow branch names may be pushed.
+# main/develop get changes via local `git flow <type> finish`; pre-commit blocks direct commits on them.
+# Bypass in emergencies: GITFLOW_BYPASS=1 git push ...
+[ "$GITFLOW_BYPASS" = "1" ] && exit 0
+zero=0000000000000000000000000000000000000000
+status=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  case "$remote_ref" in refs/heads/*) ;; *) continue ;; esac   # tags etc. are fine
+  [ "$local_sha" = "$zero" ] && continue                          # deleting a branch is fine
+  name=${remote_ref#refs/heads/}
+  case "$name" in
+    main|develop|feature/?*|bugfix/?*|release/?*|hotfix/?*|support/?*) ;;
+    *)
+      echo "git-flow: branch '$name' does not follow git-flow naming" >&2
+      echo "  (feature/, bugfix/, release/, hotfix/, support/)." >&2; status=1 ;;
+  esac
+done
+exit $status
